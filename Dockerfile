@@ -5,7 +5,7 @@ COPY ./bedrock /app/bedrock
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Use dunglas/frankenphp as the base image
-FROM dunglas/frankenphp:1.13.2-php8-trixie
+FROM dunglas/frankenphp:1.13.4-php8-trixie
 
 # add additional extensions here:
 RUN install-php-extensions \
