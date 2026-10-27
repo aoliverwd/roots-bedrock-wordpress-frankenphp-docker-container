@@ -1,0 +1,16 @@
+.env.example
+docker-compose.yml
+Dockerfile
+.gitignore
+.env
+.DS_Store
+.dockerignore
+.git
+*.md
+
+bedrock/pint.json
+bedrock/README.md
+bedrock/phpunit.xml.dist
+bedrock/LICENSE.md
+bedrock/tests
+bedrock/vendor
