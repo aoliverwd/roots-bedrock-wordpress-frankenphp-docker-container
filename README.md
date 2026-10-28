@@ -75,22 +75,10 @@ Check the status of the running services:
 docker compose ps
 ```
 
-For the SQLite configuration, use:
-
-```bash
-docker compose -f docker-compose-sqlite.yml ps
-```
-
 View service logs:
 
 ```bash
 docker compose logs -f
-```
-
-For SQLite, include the Compose file in the command:
-
-```bash
-docker compose -f docker-compose-sqlite.yml logs -f
 ```
 
 Press `Ctrl+C` to stop following the logs. This does not stop the containers.
@@ -105,16 +93,10 @@ Caddy handles HTTPS for local development. Depending on your operating system an
 
 ### 5. Stop the Environment
 
-Stop the default environment:
+Stop the environment:
 
 ```bash
 docker compose down
-```
-
-For SQLite:
-
-```bash
-docker compose -f docker-compose-sqlite.yml down
 ```
 
 These commands stop and remove the containers and associated Compose network while preserving named volumes.
@@ -125,13 +107,8 @@ To also remove named volumes, use:
 docker compose down -v
 ```
 
-Or, for SQLite:
-
-```bash
-docker compose -f docker-compose-sqlite.yml down -v
-```
-
-> **Warning:** Removing volumes can permanently delete database contents and other persisted data. Back up anything you need before running these commands.
+> [!WARNING]
+> Removing volumes can permanently delete database contents and other persisted data. Back up anything you need before running these commands.
 
 ## WordPress Plugin and Theme Management
 
@@ -179,8 +156,6 @@ Use `composer update` deliberately, as it can change dependency versions and upd
 ## WordPress CLI (WP-CLI)
 
 Run WP-CLI commands inside the WordPress container with `docker compose exec`.
-
-The examples below use the default MySQL configuration. If you use SQLite, add `-f docker-compose-sqlite.yml` to each command.
 
 ### List Installed Plugins
 
