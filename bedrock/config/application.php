@@ -126,6 +126,8 @@ if (env('DATABASE_URL')) {
     Config::define('DB_HOST', isset($dsn->port) ? "{$dsn->host}:{$dsn->port}" : $dsn->host);
 }
 
+Config::define('DB_PATH', $root_dir . '/sqlite/wp.sqlite');
+
 /**
  * Authentication Unique Keys and Salts
  */

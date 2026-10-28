@@ -9,6 +9,9 @@ bedrock/web/app/uploads/*
 !bedrock/web/app/uploads/.gitkeep
 bedrock/web/app/cache/*
 
+# Ignore wordpress sqlite
+bedrock/sqlite/wp.sqlite
+
 # WordPress
 bedrock/web/wp
 bedrock/web/.htaccess

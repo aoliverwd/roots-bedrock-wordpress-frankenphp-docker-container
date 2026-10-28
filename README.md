@@ -1,6 +1,6 @@
 # Roots Bedrock WordPress Development Environment
 
-A Docker-based WordPress development environment powered by [Roots Bedrock](https://roots.io/bedrock/), [FrankenPHP](https://frankenphp.dev/), [Caddy](https://caddyserver.com/), and MySQL.
+A Docker-based WordPress development environment powered by [Roots Bedrock](https://roots.io/bedrock/), [FrankenPHP](https://frankenphp.dev/), [Caddy](https://caddyserver.com/). With MySQL or SQLite database storage options.
 
 The environment provides a local HTTPS development setup with Composer-based dependency management through Bedrock.
 
@@ -33,6 +33,12 @@ Build the Docker images and start the services in detached mode:
 
 ```bash
 docker compose up -d --build
+```
+
+Or build with SQLite enabled:
+
+```bash
+docker compose -f docker-compose-sqlite.yml up -d --build --remove-orphans
 ```
 
 To check the status of the running services:
@@ -171,6 +177,12 @@ If necessary, rebuild and restart the environment:
 docker compose up -d --build
 ```
 
+or
+
+```bash
+docker compose -f docker-compose-sqlite.yml up -d --build --remove-orphans
+```
+
 ### WordPress cannot connect to MySQL
 
 Review the database-related variables in `.env` and confirm that the MySQL service is running and configured with matching credentials.
@@ -178,33 +190,5 @@ Review the database-related variables in `.env` and confirm that the MySQL servi
 Inspect the service logs for additional details:
 
 ```bash
-docker compose logs mysql
+docker compose logs db
 ```
-
-> **Note:** This command assumes the database service is named `mysql`. If your Compose configuration uses a different service name, replace `mysql` with the appropriate name.
-
-## Project Structure
-
-The key project files and directories are:
-
-```text
-.
-├── bedrock/
-│   ├── composer.json
-│   ├── composer.lock
-│   └── web/
-├── .env
-├── env.example
-└── docker-compose.yml
-```
-
-This is an illustrative overview. Your actual directory structure may differ depending on the repository layout.
-
-## Contributing
-
-When changing the development environment:
-
-- Update `env.example` when adding or changing required environment variables.
-- Keep WordPress dependencies managed through Composer.
-- Avoid committing secrets or local-only configuration.
-- Update this README when setup steps or development workflows change.
